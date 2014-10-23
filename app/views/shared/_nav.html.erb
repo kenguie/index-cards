@@ -8,7 +8,7 @@
     <% if @project %>
      |
     <%= link_to 'projects', projects_path, class: :button %> |
-    <%= link_to 'add card', project_cards_path(@project), method: :post, class: :button %>
+    <%= link_to 'add card', project_cards_path(@project), method: :post, remote: true, class: :button %>
     <% end %>
 	<% else %>
 		<%= link_to "sign in", new_user_session_path, class: :button %> |

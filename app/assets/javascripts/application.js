@@ -11,11 +11,19 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require best_in_place
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 $(document).on('ready page:load', function () {
-	$('.nav').on('ajax:success', function() {
+	$(document).on('ajax:success', '.nav', function() {
 		$(this).closest('.card').fadeOut();
 	});
+	$(".best_in_place").best_in_place();
+	$("#board").sortable({
+		appendTo: $('#board')
+	});
 });
+
+
