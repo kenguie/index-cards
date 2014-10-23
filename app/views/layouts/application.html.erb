@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <header>
+
+    	<nav>
+    		<% if current_user %>
+    			<%= link_to "sign out", destroy_user_session_path, method: :delete, class: :button %> | 
+    			<%= link_to "new project", projects_path, method: :post, class: :button %>
+    		<% else %>
+    			<%= link_to "sign in", new_user_session_path, class: :button %> |
+    			<%= link_to "sign up", new_user_registration_path, class: :button %>
+    		<% end %>
+    	</nav>
+
+      <% if current_user %>
+        <h1><%= "Hello #{current_user.name}" %></h1>
+      <% else %>
+        <h1>Cards</h1>
+      <% end %>
+    </header>
+
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
 
 <%= yield %>
 
