@@ -20,8 +20,8 @@
       <% end %>
     </header>
 
-    <div class="notice"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
+    <% if notice %><div id="notice"><%= notice %></div><% end %>
+    <% if alert %><div id="alert"><%= alert %></div><% end %>
 
 <%= yield %>
 

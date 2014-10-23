@@ -2,6 +2,7 @@
 	<% @project.cards.each do |card| %>
 		<div class="card">	
 			<div class="header">
+				<span class="nav"><%= link_to 'X', project_card_path(@project, card), method: :delete, remote: true %></span>
 				<h3><%= card.title %></h3>
 			</div>
 			<p><%= card.body %></p>
